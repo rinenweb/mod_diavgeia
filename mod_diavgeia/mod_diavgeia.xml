@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="4.0" client="site" group="user" method="upgrade">
+    <name>MOD_DIAVGEIA</name>
+    <creationDate>2023-10</creationDate>
+    <author>Rinenweb</author>
+    <license>GPL License v2</license>
+	<authorEmail>info@rinenweb.eu</authorEmail>
+	<authorUrl>https://www.rinenweb.eu</authorUrl>
+    <version>1.0</version>
+    <description>MOD_DIAVGEIA_XML_DESCRIPTION</description>
+    <namespace>Joomla\Module\Diavgeia</namespace>
+    <files>
+        <filename>tmpl/default.php</filename>
+        <filename>mod_diavgeia.xml</filename>
+        <filename module="mod_diavgeia">mod_diavgeia.php</filename>
+        <folder>language</folder>
+        <folder>tmpl</folder>
+        <folder>Helper</folder>
+    </files>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/mod_diavgeia.ini</language>
+        <language tag="en-GB">en-GB/mod_diavgeia.sys.ini</language>
+        <language tag="el-GR">el-GR/el-GR.mod_diavgeia.ini</language>
+		<language tag="el-GR">el-GR/el-GR.mod_diavgeia.sys.ini</language>
+    </languages>
+    <config>
+    <fields name="params">
+        <fieldset name="basic">
+            <field name="keywords" type="text" label="MOD_DIAVGEIA_KEYWORDS" description="MOD_DIAVGEIA_KEYWORDS_DESC" default="" />
+            <field name="num_decisions" type="text" label="MOD_DIAVGEIA_NUM_DECISIONS" description="MOD_DIAVGEIA_NUM_DECISIONS_DESC" filter="integer" default="5" />
+        </fieldset>
+		<fieldset name="advanced">
+			<field
+				name="moduleclass_sfx" type="text"
+				label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+				description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+			<field name="cache" type="list" default="0" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+				<option value="1">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+			</field>
+			</fieldset>
+    </fields>
+    </config>
+</extension>
+
