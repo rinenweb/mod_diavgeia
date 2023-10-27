@@ -13,6 +13,7 @@ namespace Joomla\Module\Diavgeia\Site\Helper;
 defined('_JEXEC') or die;
 
 class DiavgeiaHelper {
+
     public static function fetchData($keywords, $numDecisions) {
         $apiUrl = 'https://diavgeia.gov.gr/opendata/search?subject=' . urlencode($keywords) . '&size=' . $numDecisions;
   

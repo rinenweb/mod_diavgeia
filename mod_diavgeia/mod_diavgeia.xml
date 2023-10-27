@@ -26,6 +26,7 @@
     <config>
     <fields name="params">
         <fieldset name="basic">
+            <field name="intro_text" type="text" filter="raw" label="MOD_DIAVGEIA_INTRO_TEXT" description="MOD_DIAVGEIA_INTRO_TEXT_DESC" />
             <field name="keywords" type="text" label="MOD_DIAVGEIA_KEYWORDS" description="MOD_DIAVGEIA_KEYWORDS_DESC" default="" />
             <field name="num_decisions" type="text" label="MOD_DIAVGEIA_NUM_DECISIONS" description="MOD_DIAVGEIA_NUM_DECISIONS_DESC" filter="integer" default="5" />
         </fieldset>
