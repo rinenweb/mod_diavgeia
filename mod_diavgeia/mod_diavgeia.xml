@@ -31,6 +31,13 @@
             <field name="num_decisions" type="text" label="MOD_DIAVGEIA_NUM_DECISIONS" description="MOD_DIAVGEIA_NUM_DECISIONS_DESC" filter="integer" default="5" />
         </fieldset>
 		<fieldset name="advanced">
+        	<field
+			    name="layout"
+				type="modulelayout"
+				label="JFIELD_ALT_LAYOUT_LABEL"
+				class="form-select"
+				validate="moduleLayout"
+				/>
 			<field
 				name="moduleclass_sfx" type="text"
 				label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"

@@ -13,19 +13,19 @@ use Joomla\CMS\Language\Text;
 
 $introText = $params->get('intro_text');
 echo '<div class="mod-diavgeia-intro-text">' . $introText . '</div>';
+
 // Check if there is data to display
-if (isset($data) && is_array($data) && !empty($data)) {
-    echo '<div  class="diavgeia"><ul>';
-    foreach ($data as $decision) {
+if (!empty($data)) {
+    if (!empty($data['decisions'])) {
+    echo '<ul class="mod-diavgeia-desicions">';
+    foreach ($data['decisions'] as $decision) {
         echo '<li>';
-//        echo 'Title: ' . $decision['subject'] . '<br>'; // Use htmlspecialchars to escape output
-        echo 'Title: ' . htmlspecialchars($decision['subject'] ?? 'N/A') . '<br>'; // Use htmlspecialchars to escape output
-        echo 'Date: ' . date('d/m/Y', intval(substr($decision['publishTimestamp'] ?? 0,10))) . '<br>';
-        // Add more fields as needed
+		echo $decision['subject'] . '<br>';
+        echo '<strong><em>' . date('d/m/Y', substr($decision['publishTimestamp'], 0,10)) . '</em></strong><br>';
         echo '</li>';
     }
-    echo '</ul></div>';
+    echo '</ul>';
 } else {
     echo Text::_('MOD_DIAVGEIA_NO_DECISIONS');
 }
-
+}

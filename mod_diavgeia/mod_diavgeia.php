@@ -20,27 +20,12 @@ Text::script('MOD_DIAVGEIA_NO_DECISIONS');
 Text::script('MOD_DIAVGEIA_INTRO_TEXT');
 
 try {
-    // Construct the API URL with query parameters for GET request
-    $apiUrl = 'https://diavgeia.gov.gr/opendata/search?subject=' . urlencode($keywords) . '&size=' . $num_decisions;
-
-    // Debugging: Output the API URL
-    echo 'API URL: ' . $apiUrl . '<br>';
-
-
     // Call the helper function to get decisions
-    $data = DiavgeiaHelper::getDecisions($keywords, $num_decisions);
-
-    // Debugging: Output the API response
-echo '<pre>';
-print_r($data);
-echo '</pre>';
+    $data = DiavgeiaHelper::getDecisions($keywords, $num_decisions, 'application/json');
 
     // Output the data by including the template file
-    ob_start();
     require ModuleHelper::getLayoutPath('mod_diavgeia', $params->get('layout', 'default'));
-    $output = ob_get_clean();
 
-    echo $output;
 } catch (Exception $e) {
     echo 'Error: ' . $e->getMessage();
 }

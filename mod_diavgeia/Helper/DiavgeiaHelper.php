@@ -2,8 +2,8 @@
 /**
  * @package Joomla.Site
  * @subpackage mod_diavgeia
- * @author     Rinenweb <info@rinenweb.eu>
- * @link       https://www.rinenweb.eu
+ * @author Rinenweb <info@rinenweb.eu>
+ * @link https://www.rinenweb.eu
  * @license GNU General Public License v2
  */
 
@@ -12,49 +12,39 @@ namespace Joomla\Module\Diavgeia\Site\Helper;
 // No direct access to this file
 defined('_JEXEC') or die;
 
+// Import necessary classes
+use Joomla\Http\Transport\Curl;
+use Joomla\Uri\Uri;
+use Joomla\Uri\UriInterface;
+
 class DiavgeiaHelper {
+    
+    public static function fetchData($keywords, $numDecisions, $acceptHeader = 'application/json') {
+        $apiUrl = 'https://diavgeia.gov.gr/opendata/search?subject=' . urlencode($keywords) . '&page=0&size=' . $numDecisions;
 
-    public static function fetchData($keywords, $numDecisions) {
-        $apiUrl = 'https://diavgeia.gov.gr/opendata/search?subject=' . urlencode($keywords) . '&size=' . $numDecisions;
-  
-        // Initialize cURL session
-        $ch = curl_init($apiUrl);
+        // Create an instance of Joomla\Http\Curl\Curl
+        $curlTransport = new Curl;
 
-        // Set cURL options
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // Define request parameters
+        $method = 'GET';
+        $uri = new Uri($apiUrl);
+        $data = null;
+        $headers = [
+          'Accept' => $acceptHeader,
+        ];
+        $timeout = 20;
+        $userAgent = 'ReqBin Curl Client/1.0';
 
-        // Execute the cURL request
-        $response = curl_exec($ch);
+        $response = $curlTransport->request($method, $uri, $data, $headers, $timeout, $userAgent);
 
-        // Check for cURL errors
-        if (curl_errno($ch)) {
-            throw new Exception('cURL error: ' . curl_error($ch));
+        if ($response->getStatusCode() !== 200) {
+            throw new \Exception('cURL error: ' . $response->getBody());
         }
-
-        // Close cURL session
-        curl_close($ch);
-
-        // Handle the API response
-        if ($response) {
-            $data = json_decode($response, true);
-
-            return $data;
-        } else {
-            throw new Exception('API request failed.');
-        }
+        $data = json_decode($response->getBody(), true);
+        return $data;
     }
-
-    public static function processData($data) {
-        // the code to process the data, e.g., format or filter it
+    public static function getDecisions($keywords, $numDecisions, $acceptHeader = 'application/json') {
+        $rawData = self::fetchData($keywords, $numDecisions, $acceptHeader);        
+        return $rawData;
     }
-
-    public static function getDecisions($keywords, $numDecisions) {
-        $rawData = self::fetchData($keywords, $numDecisions);
-        $processedData = self::processData($rawData);
-
-        return $processedData;
-    }
-
-    // Other helper functions as needed
 }
-
