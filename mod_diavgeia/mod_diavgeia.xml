@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="4.0" client="site" group="user" method="upgrade">
     <name>MOD_DIAVGEIA</name>
-    <creationDate>2023-10</creationDate>
+    <creationDate>2023-10-30</creationDate>
     <author>Rinenweb</author>
     <license>GPL License v2</license>
 	<authorEmail>info@rinenweb.eu</authorEmail>
@@ -28,7 +28,15 @@
         <fieldset name="basic">
             <field name="intro_text" type="text" filter="raw" label="MOD_DIAVGEIA_INTRO_TEXT" description="MOD_DIAVGEIA_INTRO_TEXT_DESC" />
             <field name="keywords" type="text" label="MOD_DIAVGEIA_KEYWORDS" description="MOD_DIAVGEIA_KEYWORDS_DESC" default="" />
-            <field name="num_decisions" type="text" label="MOD_DIAVGEIA_NUM_DECISIONS" description="MOD_DIAVGEIA_NUM_DECISIONS_DESC" filter="integer" default="5" />
+            <field name="num_decisions" type="text" label="MOD_DIAVGEIA_NUM_DECISIONS" description="MOD_DIAVGEIA_NUM_DECISIONS_DESC" filter="integer" first="1" last="100" step="1" default="5" />
+            <field name="organization" type="radio"	layout="joomla.form.field.radio.switcher" label="MOD_DIAVGEIA_ORGANIZATION_DISPLAY_LABEL" default="0"	filter="integer" >
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
+                        <field name="ada_display" type="radio"	layout="joomla.form.field.radio.switcher" label="MOD_DIAVGEIA_ADA_DISPLAY" default="0"	filter="integer" >
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
         </fieldset>
 		<fieldset name="advanced">
         	<field
