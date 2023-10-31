@@ -3,7 +3,7 @@ A Joomla 4 module that is used for retrieving data from diavgeia.gov.gr based on
 
 ## Features
 Current settings include:
-- [x] **Intro Text**, where html markup is allowed
+- [x] **Intro Text**, where you can write some text before that will be displayed before the decisions. You can even use some HTML markup there.
 - [x] **Keywords to search**, where you fill in the desired keywords to search in Diavgeia.gov.gr
 - [x] **Number of decisions to retrieve**, where you define the number of decisions to display. Remember that you can display up to 500 decisions, since you need to have credentials to search for more in Diavgeia.gov.gr
 - [x] **Display Organization**, where you select whether you want the respected organization of each decision to be displayed
@@ -32,3 +32,5 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 You should have received a copy of the GNU General Public License along with Joomla CMS. If not, see http://www.gnu.org/licenses/.
 
 I do not offer any kind of support. Using freely distributed software does not entitle you to free support or labor from its developers. You may contact me with any ideas for new features, but there are no guarantees that your request will be implemented or ever responded to in a certain timeframe or at all.
+
+Special thanks to @niosme and Dimitris Vasilakis for all their help in developing this Joomla extension.
