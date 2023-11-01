@@ -14,6 +14,12 @@ use Joomla\CMS\Language\Text;
 $introText = $params->get('intro_text');
 echo '<div class="mod-diavgeia-intro-text">' . $introText . '</div>';
 
+$customCss = $params->get('customCss','');
+if (!empty($customCss)){
+    $wa = $app->getDocument()->getWebAssetManager();
+    $wa->addInlineStyle($customCss);
+}
+
 // Check if there is data to display
 if (!empty($data)) {
     if (!empty($data['decisions'])) {

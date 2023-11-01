@@ -6,7 +6,7 @@
     <license>GPL License v2</license>
 	<authorEmail>info@rinenweb.eu</authorEmail>
 	<authorUrl>https://www.rinenweb.eu</authorUrl>
-    <version>1.0</version>
+    <version>1.1</version>
     <description>MOD_DIAVGEIA_XML_DESCRIPTION</description>
     <namespace>Joomla\Module\Diavgeia</namespace>
     <files>
@@ -32,11 +32,12 @@
             <field name="organization" type="radio"	layout="joomla.form.field.radio.switcher" label="MOD_DIAVGEIA_ORGANIZATION_DISPLAY_LABEL" default="0"	filter="integer" >
 					<option value="0">JHIDE</option>
 					<option value="1">JSHOW</option>
-				</field>
-                        <field name="ada_display" type="radio"	layout="joomla.form.field.radio.switcher" label="MOD_DIAVGEIA_ADA_DISPLAY" default="0"	filter="integer" >
+			</field>
+            <field name="ada_display" type="radio"	layout="joomla.form.field.radio.switcher" label="MOD_DIAVGEIA_ADA_DISPLAY" default="0"	filter="integer" >
 					<option value="0">JHIDE</option>
 					<option value="1">JSHOW</option>
-				</field>
+			</field>
+            <field name="customCss" type="editor" default="" filter="raw" label="Custom CSS" description="CSS code to override the default template styling" rows="5" editor="codemirror|none" buttons="false" syntax="css" />
         </fieldset>
 		<fieldset name="advanced">
         	<field
