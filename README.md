@@ -24,13 +24,13 @@ Diavgeia Module will (hopefully) play nice with:
 >This module will **NOT** work with Joomla 3.X or PHP 7.X.
 
 ## Screenshots
-![Modules_Diavgeia_Module](https://github.com/rinenweb/mod_diavgeia/assets/17462686/95eae8f5-be4f-4dc7-a9f8-68b05d301022)
+![Δι@ύγεια_Module](https://github.com/rinenweb/mod_diavgeia/assets/17462686/2f300837-bfac-45bf-9006-800cdab1bced)
 
 ## License and Disclaimer
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-You should have received a copy of the GNU General Public License along with Joomla CMS. If not, see http://www.gnu.org/licenses/.
+You should have received a copy of the GNU General Public License along with this module. If not, see http://www.gnu.org/licenses/.
 
 I do not offer any kind of support. Using freely distributed software does not entitle you to free support or labor from its developers. You may contact me with any ideas for new features, but there are no guarantees that your request will be implemented or ever responded to in a certain timeframe or at all.
 
-Special thanks to @niosme and Dimitris Vasilakis for all their help in developing this Joomla extension.
+Special thanks to @niosme and @dvasilakis81 for all their help in developing this Joomla extension.
