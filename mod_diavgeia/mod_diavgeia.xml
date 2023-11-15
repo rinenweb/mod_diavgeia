@@ -58,5 +58,8 @@
 			</fieldset>
     </fields>
     </config>
+	<updateservers>
+	<server type="extension" name="Diavgeia module updates">https://raw.githubusercontent.com/rinenweb/mod_diavgeia/main/manifest.xml</server>
+	</updateservers>
 </extension>
 
