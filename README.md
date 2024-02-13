@@ -22,7 +22,7 @@
 - [X] Joomla 5.X
 - [x] PHP 8.0+
 
-> [!ΠΡΟΣΟΧΗ]
+> [!WARNING]
 > Αυτό το ένθεμα **ΔΕΝ** θα λειτουργήσει σε Joomla 3.X ή σε PHP 7.X.
 
 ## Screenshots
