@@ -10,7 +10,7 @@
 - [x] **Αριθμός πράξεων προς προβολή**, όπου ορίζετε τον αριθμό των αποφάσεων που θα εμφανίζονται. Να θυμάστε ότι μπορείτε να εμφανίσετε έως και 500 πράξεις, αφού χρειάζεται να έχετε διαπιστευτήρια για να αναζητήσετε περισσότερες στο Diavgeia.gov.gr
 - [x] **Προβολή Φορέα**, όπου επιλέγετε εάν θέλετε να εμφανίζεται ο φορέας κάθε πράξης
 - [x] **Προβολή ΑΔΑ (με σύνδεσμο)**, όπου επιλέγετε αν θέλετε να εμφανίζεται ο ΑΔΑ κάθε πράξης, η οποία θα αποτελεί παράλληλα σύνδεσμο προς την αντίστοιχη σελίδα της πράξης στο Diavgeia.gov.gr
-- [x] **Custom HTML**, ένα πεδίο όπου μπορείτε να προσαρμόσετε την εμφάνιση του ενθέματος, συμπληρώνοντας τις αντίστοιχες κλάσεις CSS
+- [x] **Custom CSS**, ένα πεδίο όπου μπορείτε να προσαρμόσετε την εμφάνιση του ενθέματος, συμπληρώνοντας τις αντίστοιχες κλάσεις CSS
 
 Άλλες δυνατότητες περιλαμβάνουν:
 + Συμβολοσειρές γλώσσας για **αγγλική** και **ελληνική** γλώσσα. Μη διστάσετε να βρείτε τις σχετικές σταθερές γλώσσας στο φάκελο "language" και να κάνετε μια γλωσσική παράκαμψη μέσω του Joomla, εάν θέλετε να προσαρμόσετε το λεκτικό του ενθέματος.
@@ -46,7 +46,7 @@ Current settings include:
 - [x] **Number of decisions to retrieve**, where you define the number of decisions to display. Remember that you can display up to 500 decisions, since you need to have credentials to search for more in Diavgeia.gov.gr
 - [x] **Display Organization**, where you select whether you want the respected organization of each decision to be displayed
 - [x] **Display ADA (with link)**, where you select whether you want the ADA of each decision to be displayed, which is hyperlinked to the respected decision page in Diavgeia.gov.gr
-- [X] **Custom HTML**, a field where you can customize the appearance of the Module, by filling in the corresponding CSS classes
+- [X] **Custom CSS**, a field where you can customize the appearance of the Module, by filling in the corresponding CSS classes
 
 Other features include:
 + Language strings for **English** and **Greek** language. Feel free to find the relevant language constants in "language" folder and make a Language Override via Joomla if you wish.
