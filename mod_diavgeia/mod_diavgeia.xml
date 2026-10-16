@@ -1,65 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" version="4.0" client="site" group="user" method="upgrade">
+<extension type="module" client="site" method="upgrade">
     <name>MOD_DIAVGEIA</name>
-    <creationDate>2023-10-30</creationDate>
     <author>Rinenweb</author>
-    <license>GPL License v2</license>
-	<authorEmail>info@rinenweb.eu</authorEmail>
-	<authorUrl>https://www.rinenweb.eu</authorUrl>
-    <version>1.1</version>
+    <creationDate>2023-10-30</creationDate>
+    <license>GNU General Public License version 2 or later</license>
+    <authorEmail>info@rinenweb.eu</authorEmail>
+    <authorUrl>https://www.rinenweb.eu</authorUrl>
+    <version>1.2</version>
     <description>MOD_DIAVGEIA_XML_DESCRIPTION</description>
-    <namespace>Joomla\Module\Diavgeia</namespace>
+    <namespace>Rinenweb\Module\Diavgeia</namespace>
+    <scriptfile>script.php</scriptfile>
     <files>
-        <filename>tmpl/default.php</filename>
-        <filename>mod_diavgeia.xml</filename>
         <filename module="mod_diavgeia">mod_diavgeia.php</filename>
-        <folder>language</folder>
-        <folder>tmpl</folder>
         <folder>Helper</folder>
+        <folder>tmpl</folder>
     </files>
     <languages folder="language">
         <language tag="en-GB">en-GB/mod_diavgeia.ini</language>
         <language tag="en-GB">en-GB/mod_diavgeia.sys.ini</language>
-        <language tag="el-GR">el-GR/el-GR.mod_diavgeia.ini</language>
-		<language tag="el-GR">el-GR/el-GR.mod_diavgeia.sys.ini</language>
+        <language tag="el-GR">el-GR/mod_diavgeia.ini</language>
+		<language tag="el-GR">el-GR/mod_diavgeia.sys.ini</language>
     </languages>
     <config>
-    <fields name="params">
-        <fieldset name="basic">
-            <field name="intro_text" type="text" filter="raw" label="MOD_DIAVGEIA_INTRO_TEXT" description="MOD_DIAVGEIA_INTRO_TEXT_DESC" />
-            <field name="keywords" type="text" label="MOD_DIAVGEIA_KEYWORDS" description="MOD_DIAVGEIA_KEYWORDS_DESC" default="" />
-            <field name="num_decisions" type="text" label="MOD_DIAVGEIA_NUM_DECISIONS" description="MOD_DIAVGEIA_NUM_DECISIONS_DESC" filter="integer" first="1" last="100" step="1" default="5" />
-            <field name="organization" type="radio"	layout="joomla.form.field.radio.switcher" label="MOD_DIAVGEIA_ORGANIZATION_DISPLAY_LABEL" default="0"	filter="integer" >
-					<option value="0">JHIDE</option>
-					<option value="1">JSHOW</option>
-			</field>
-            <field name="ada_display" type="radio"	layout="joomla.form.field.radio.switcher" label="MOD_DIAVGEIA_ADA_DISPLAY" default="0"	filter="integer" >
-					<option value="0">JHIDE</option>
-					<option value="1">JSHOW</option>
-			</field>
-            <field name="customCss" type="editor" default="" filter="raw" label="Custom CSS" description="CSS code to override the default template styling" rows="5" editor="codemirror|none" buttons="false" syntax="css" />
-        </fieldset>
-		<fieldset name="advanced">
-        	<field
-			    name="layout"
-				type="modulelayout"
-				label="JFIELD_ALT_LAYOUT_LABEL"
-				class="form-select"
-				validate="moduleLayout"
-				/>
-			<field
-				name="moduleclass_sfx" type="text"
-				label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
-				description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
-			<field name="cache" type="list" default="0" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
-				<option value="1">JGLOBAL_USE_GLOBAL</option>
-				<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
-			</field>
-			</fieldset>
-    </fields>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="intro_text"
+                    type="text"
+                    label="MOD_DIAVGEIA_INTRO_TEXT"
+                    description="MOD_DIAVGEIA_INTRO_TEXT_DESC"
+                    filter="raw"
+                />
+                <field
+                    name="keywords"
+                    type="text"
+                    label="MOD_DIAVGEIA_KEYWORDS"
+                    description="MOD_DIAVGEIA_KEYWORDS_DESC"
+                    default=""
+                    filter="string"
+                />
+                <field
+                    name="num_decisions"
+                    type="number"
+                    label="MOD_DIAVGEIA_NUM_DECISIONS"
+                    description="MOD_DIAVGEIA_NUM_DECISIONS_DESC"
+                    default="5"
+                    min="1"
+                    max="100"
+                    step="1"
+                    filter="integer"
+                />
+                <field
+                    name="organization"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    label="MOD_DIAVGEIA_ORGANIZATION_DISPLAY_LABEL"
+                    description="MOD_DIAVGEIA_ORGANIZATION_DISPLAY_LABEL_DESC"
+                    default="0"
+                    filter="integer"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                    name="ada_display"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    label="MOD_DIAVGEIA_ADA_DISPLAY"
+                    description="MOD_DIAVGEIA_ADA_DISPLAY_DESC"
+                    default="0"
+                    filter="integer"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                    name="customCss"
+                    type="editor"
+                    label="MOD_DIAVGEIA_CUSTOM_CSS"
+                    description="MOD_DIAVGEIA_CUSTOM_CSS_DESC"
+                    default=""
+                    filter="raw"
+                    rows="5"
+                    editor="codemirror|none"
+                    buttons="false"
+                    syntax="css"
+                />
+            </fieldset>
+
+            <fieldset name="advanced">
+                <field
+                    name="layout"
+                    type="modulelayout"
+                    label="JFIELD_ALT_LAYOUT_LABEL"
+                    class="form-select"
+                    validate="moduleLayout"
+                />
+                <field
+                    name="moduleclass_sfx"
+                    type="text"
+                    label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                    validate="CssIdentifier"
+                />
+                <field
+                    name="cache_lifetime"
+                    type="number"
+                    label="MOD_DIAVGEIA_CACHE_LIFETIME"
+                    description="MOD_DIAVGEIA_CACHE_LIFETIME_DESC"
+                    default="15"
+                    min="0"
+                    step="1"
+                    filter="integer"
+                />
+                <field
+                    name="cache"
+                    type="list"
+                    label="COM_MODULES_FIELD_CACHING_LABEL"
+                    default="0"
+                    filter="integer"
+                    validate="options"
+                    >
+                    <option value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+            </fieldset>
+        </fields>
     </config>
 	<updateservers>
-	<server type="extension" name="Diavgeia module updates">https://raw.githubusercontent.com/rinenweb/mod_diavgeia/main/manifest.xml</server>
+	<server type="extension" priority="1" name="Diavgeia module updates">https://raw.githubusercontent.com/rinenweb/mod_diavgeia/main/manifest.xml</server>
 	</updateservers>
 </extension>
 
