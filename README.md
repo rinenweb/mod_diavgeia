@@ -1,7 +1,7 @@
 [English Description](#description)
 
 ## Ένθεμα Δι@ύγεια
-Ένα ένθεμα για Joomla 4 που χρησιμοποιείται για την ανάκτηση δεδομένων από το diavgeia.gov.gr βάσει καθορισμένων κανόνων.
+Ένα ένθεμα για Joomla που χρησιμοποιείται για την ανάκτηση δεδομένων από το diavgeia.gov.gr βάσει καθορισμένων κανόνων.
 
 ## Δυνατότητες
 Οι τρέχουσες ρυθμίσεις περιλαμβάνουν:
@@ -20,6 +20,7 @@
 Το Ένθεμα Δι@ύγεια θα παίξει (λογικά) σε:
 - [x] Joomla 4.X
 - [X] Joomla 5.X
+- [x] Joomla 6.X
 - [x] PHP 8.0+
 
 > [!WARNING]
@@ -37,7 +38,7 @@
 
 # Diavgeia Module
 ## description
-A Joomla 4 module that is used for retrieving data from diavgeia.gov.gr based on defined rules.
+A Joomla module that is used for retrieving data from diavgeia.gov.gr based on defined rules.
 
 ## Features
 Current settings include:
@@ -57,6 +58,7 @@ Other features include:
 Diavgeia Module will (hopefully) play nice with:
 - [x] Joomla 4.X
 - [X] Joomla 5.X
+- [x] Joomla 6.X
 - [x] PHP 8.0+
 
 > [!WARNING]
