@@ -1,45 +1,43 @@
 <?php
-defined('_JEXEC') or die;
+/**
+ * @package     Mod_Diavgeia
+ * @author      Rinenweb <info@rinenweb.eu>
+ * @copyright   (C) 2023-2026 Rinenweb
+ * @license     GNU General Public License version 2 or later
+ * @link        https://www.rinenweb.eu
+ */
 
-// Import namespaces
-use Joomla\CMS\Factory;
-use Joomla\CMS\Language\Text;
+\defined('_JEXEC') or die;
+
 use Joomla\CMS\Helper\ModuleHelper;
-use Joomla\Module\Diavgeia\Site\Helper\DiavgeiaHelper;
+use Rinenweb\Module\Diavgeia\Site\Helper\DiavgeiaHelper;
 
-// Get the module parameters
-$module = Factory::getDocument();
-$introText = $params->get('intro_text');
-$keywords = $params->get('keywords');
-$num_decisions = $params->get('num_decisions', 5); // Default to 5 if not specified
-$showOrganization = $params->get('organization', 0); // Default to 0 (No)
-$adadisplay = $params->get('ada_display', 0); // Default to 0 (No)
+$keywords = trim((string) $params->get('keywords', ''));
 
-// Load language strings
-Text::script('MOD_DIAVGEIA_KEYWORDS');
-Text::script('MOD_DIAVGEIA_NUM_DECISIONS');
-Text::script('MOD_DIAVGEIA_NO_DECISIONS');
-Text::script('MOD_DIAVGEIA_INTRO_TEXT');
-Text::script('MOD_DIAVGEIA_ORGANIZATION_DISPLAY_LABEL');
-Text::script('MOD_DIAVGEIA_ORGANIZATION');
-Text::script('MOD_DIAVGEIA_ADA_DISPLAY');
-Text::script('MOD_DIAVGEIA_ADA');
+// No keywords configured: produce no output at all, so Joomla does not render the module.
+if ($keywords === '') {
+    return;
+}
+
+$introText        = (string) $params->get('intro_text', '');
+$num_decisions    = max(1, min(100, (int) $params->get('num_decisions', 5)));
+$showOrganization = (bool) $params->get('organization', 0);
+$adadisplay       = (bool) $params->get('ada_display', 0);
+$cacheLifetime    = max(0, (int) $params->get('cache_lifetime', 15));
+
+$decisions         = [];
+$organizationNames = [];
+$hasError          = false;
 
 try {
-    // Call the helper function to get decisions
-    $data = DiavgeiaHelper::getDecisions($keywords, $num_decisions, 'application/json');
+    $decisions = DiavgeiaHelper::getDecisions($keywords, $num_decisions, $cacheLifetime);
 
-    // Fetch the organization name based on organizationId    
-    if ($showOrganization) {
-        $organizationNames = array();
-        foreach ($data['decisions'] as $decision) {
-            $organizationName = DiavgeiaHelper::getOrganizationName($decision['organizationId'], 'application/json');
-            $organizationNames += [$decision['organizationId'] => $organizationName];            
-        }        
+    if ($showOrganization && $decisions) {
+        $organizationNames = DiavgeiaHelper::getOrganizationNames($decisions);
     }
-    // Output the data by including the template file    
-    require ModuleHelper::getLayoutPath('mod_diavgeia', $params->get('layout', 'default'));
-
-} catch (Exception $e) {
-    echo 'Error: ' . $e->getMessage();
+} catch (\Throwable $e) {
+    DiavgeiaHelper::log('Diavgeia search failed: ' . $e->getMessage());
+    $hasError = true;
 }
+
+require ModuleHelper::getLayoutPath('mod_diavgeia', $params->get('layout', 'default'));
